@@ -80,9 +80,84 @@ public class MainActivity extends AppCompatActivity {
             ActivePlayer =1;
 
         }
+        btnselected.setEnabled(false);
+        CheckWinner();
 
+
+    }
+    void CheckWinner()
+    {
+        int Winner = -1;
+        // row 1
+        if(Player1.contains(1) && Player1.contains(2) && Player1.contains(3))
+        {
+            Winner=1;
+        }
+        if(Player2.contains(1) && Player2.contains(2) && Player2.contains(3))
+        {
+            Winner=2;
+        }
+        // row 2
+        if(Player1.contains(4) && Player1.contains(5) && Player1.contains(6))
+        {
+            Winner=1;
+        }
+        if(Player2.contains(4) && Player2.contains(5) && Player2.contains(6))
+        {
+            Winner=2;
+        }
+        // row  3
+        if(Player1.contains(7) && Player1.contains(8) && Player1.contains(9))
+        {
+            Winner=1;
+        }
+        if(Player2.contains(7) && Player2.contains(8) && Player2.contains(9))
+        {
+            Winner=2;
+        }
+        // column 1
+        if(Player1.contains(1) && Player1.contains(4) && Player1.contains(7))
+        {
+            Winner=1;
+        }
+        if(Player2.contains(1) && Player2.contains(4) && Player2.contains(7))
+        {
+            Winner=2;
+        }
+        // column 2
+        if(Player1.contains(2) && Player1.contains(5) && Player1.contains(8))
+        {
+            Winner=1;
+        }
+        if(Player2.contains(2) && Player2.contains(5) && Player2.contains(8))
+        {
+            Winner=2;
+        }
+        // column 3
+        if(Player1.contains(3) && Player1.contains(6) && Player1.contains(9))
+        {
+            Winner=1;
+        }
+        if(Player2.contains(3) && Player2.contains(6) && Player2.contains(9))
+        {
+            Winner=2;
+        }
+        if(Winner!=-1)
+        {
+            // We have winner
+            if(Winner==1)
+            {
+                Toast.makeText(this, "Player 1 is winner", Toast.LENGTH_SHORT).show();
+            }
+            if(Winner==2)
+            {
+                Toast.makeText(this, "Player 2 is winner", Toast.LENGTH_SHORT).show();
+            }
+
+        }
 
 
 
     }
+
 }
