@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             btnselected.setBackgroundColor(Color.GREEN);
             Player1.add(ButtonID);
             ActivePlayer =2;
+            AutoPlay();
         }
 
         else if(ActivePlayer==2)
@@ -157,6 +159,70 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
+
+    }
+    void AutoPlay()
+    {
+        ArrayList<Integer> EmptyCells = new ArrayList<>(); // these are all unselected cells
+        // Finding Empty Cells
+        for (int i=1;i<10;i++)
+        {
+            if(!(Player1.contains(i)|| Player2.contains(i)))
+            {
+                EmptyCells.add(i);
+
+            }
+        }
+        // Random is a class in java which enable us to select random values
+        Random r = new Random();
+       int RandomIndex = r.nextInt(EmptyCells.size()-0)+  0; // if size = 3 , then u will able to select (0,1,2)
+        int ButtonId = EmptyCells.get(RandomIndex);
+        Button btnselected ;
+        switch (ButtonId) {
+
+            case 1:
+                btnselected = (Button)findViewById(R.id.btn1);
+                break;
+
+            case 2:
+                btnselected = (Button)findViewById(R.id.btn2);
+                break;
+
+            case 3:
+                btnselected = (Button)findViewById(R.id.btn3);
+                break;
+
+            case 4:
+                btnselected = (Button)findViewById(R.id.btn4);
+                break;
+
+            case 5:
+                btnselected = (Button)findViewById(R.id.btn5);
+                break;
+
+            case 6:
+                btnselected = (Button)findViewById(R.id.btn6);
+                break;
+
+            case 7:
+                btnselected = (Button)findViewById(R.id.btn7);
+                break;
+
+            case 8:
+                btnselected = (Button)findViewById(R.id.btn8);
+                break;
+
+            case 9:
+                btnselected = (Button)findViewById(R.id.btn9);
+                break;
+
+            default:
+                btnselected = (Button)findViewById(R.id.btn1);
+                break;
+
+
+        }
+        PlayGame(ButtonId, btnselected);
 
     }
 
